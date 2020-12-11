@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: web-sidekiq-service
+spec:
+  loadBalancerIP: 192.168.0.16
+  type: LoadBalancer
+  selector:
+    app: web-ui-sidekiq
+  ports:
+  - protocol: TCP
+    port: 5432
+    targetPort: 80

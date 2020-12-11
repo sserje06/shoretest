@@ -3,10 +3,11 @@ apiVersion: v1
 metadata:
   name: web-rails-service
 spec:
+  loadBalancerIP: 192.168.0.15
   type: LoadBalancer
   selector:
     app: web-ui-rails
   ports:
   - protocol: TCP
-    port: 4201
+    port: 8080
     targetPort: 80

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-sidekiq-pod-deployment
+  labels:
+    app: web-ui-sidekiq
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-ui-sidekiq
+  template:
+    metadata:
+      labels:
+        app: web-ui-sidekiq
+    spec:
+      containers:
+      - name: web-ui-sidekiq
+        image: sserje06/angular-io:v1
+        ports:
+        - containerPort: 80
