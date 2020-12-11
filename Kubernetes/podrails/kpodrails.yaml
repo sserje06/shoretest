@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-rails-pod-deployment
+  labels:
+    app: web-ui-rails
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-ui-rails
+  template:
+    metadata:
+      labels:
+        app: web-ui-rails
+    spec:
+      containers:
+      - name: web-ui-rails
+        image: sserje06/angular-io:v1
+        ports:
+        - containerPort: 80
